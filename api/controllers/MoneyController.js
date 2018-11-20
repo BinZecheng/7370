@@ -33,5 +33,11 @@ module.exports = {
         return res.redirect('/');
     },
 
+    user: async function (req, res) {
+
+        // var models = await Person.find();
+        return res.view('pages/user');
+
+    },
 };
 

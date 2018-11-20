@@ -24,7 +24,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
  '/': 'MoneyController.index',
-
+ '/user': 'MoneyController.user',
  'GET /money/create/:busiType': 'MoneyController.create',
 
   /***************************************************************************
