@@ -23,12 +23,9 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
- '/money/create/:busiType': 'MoneyController.create',
  '/': 'MoneyController.index',
 
- '/': {
-   view: 'pages/index'
- },
+ 'GET /money/create/:busiType': 'MoneyController.create',
 
   /***************************************************************************
   *                                                                          *

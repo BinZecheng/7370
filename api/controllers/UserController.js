@@ -7,6 +7,7 @@
 
 
 module.exports = {
+    
 	login: async function (req, res) {
 
         if (req.method == "GET") return res.view('user/login');
@@ -38,30 +39,23 @@ module.exports = {
     
             sails.log("Session: " + JSON.stringify(req.session) );
             
-            // return res.json(req.session);
-            
-            // return res.ok("Login successfully");
-            // if (req.wantsJSON){
-            //     return res.redirect('/page/index'); // ajax request
-            // } else {
-               return res.ok("Login successfully"); // conventional
-            // }
-            // return res.redirect('/');
+            return res.redirect('/');
     
         });
     
     },
+
     logout: async function (req, res) {
 
         req.session.destroy(function (err) {
         
             if (err) return res.serverError(err);
             
-            // return res.redirect('/');
-           return res.ok("Log out successfully");
+            return res.redirect('/');
             
         });
     },
+
     populate: async function (req, res) {
 
         if (!['supervises'].includes(req.params.association)) return res.notFound();
