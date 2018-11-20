@@ -62,4 +62,19 @@ module.exports = {
             
         });
     },
+    populate: async function (req, res) {
+
+        if (!['supervises'].includes(req.params.association)) return res.notFound();
+    
+        const message = sails.getInvalidIdMsg(req.params);
+    
+        if (message) return res.badRequest(message);
+    
+        var model = await User.findOne(req.params.id).populate(req.params.association);
+    
+        if (!model) return res.notFound();
+    
+        return res.json(model);
+    
+    },
 }

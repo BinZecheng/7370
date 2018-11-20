@@ -17,6 +17,12 @@ module.exports = {
 
         return res.redirect('/');
     },
+    
+    index: async function (req, res) {
 
+        // var models = await Person.find();
+        return res.view('pages/index');
+
+    },
 };
 
