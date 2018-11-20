@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>MonkeyMoney</title>
+  <title>/123123/</title>
 
   <!-- Viewport mobile tag for sensible mobile support -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -40,34 +40,71 @@
 </head>
 
 <body>
-
   <div class="container">
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Home</a>
-        <% if(typeof(req.session)) {%>
-          <% if(req.session.role=="admin") {%>
-          <a class="nav-item nav-link" href="/money/admin/">Admin</a>
-          <% }else if(req.session.role=="user") {%>
-          <a class="nav-item nav-link" href="/money/user/">User</a>
-          <% };%>
-        <% };%>
-      </nav>
-      <span class="float-right">Hi,~
-        <% if(typeof(req.session.username)=="undefined") {%>
-        friend
-        <a href="/user/login/">(Login)</a>
-        <% }else {%>
-        <%= req.session.username %>
-        <a href="/user/logout/">(logout)</a>
-        <% };%>
-      </span>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand " href="/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/search">活期</a>
+          </li> -->
+          
+          <% if (req.session.role == 'admin'){%>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="/create">定期</a>
+          </li> -->
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+          </li>
+        
+          <% } else if (req.session.role == 'user'){%>
+            <li class="nav-itm">
+            <a class="nav-link" href="/user">User</a >
+            </li>
+            <% }%>
+      
+            
+           
+        </ul>
+        <% if (req.session.role == 'admin'){ %>
+          <span style="color:#000000">Welcome, <%= req.session.username %>
+            (<a style="color:blue" href="/user/logout">Logout</a >)
+            </span>
+        
+          <% } else if(req.session.role == 'user') { %>
+            <span style="color:#000000">Welcome, <%= req.session.username %>
+            (<a style="color:blue" href="/user/logout">Logout</a >)
+            </span>
+            <% } else { %>
+              <span style= "color:#000000">Hello, <%= req.session.username %>
+                (<a style="color:blue" href="/user/login">Login</a >)
+                </span>
+           
+            <% }%>
+            
+      </div>
+    </nav>
 
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Monkey Money</h1>
+        <p class="lead" text-align:justify>赶紧存钱</p>
+      </div>
     </div>
-    <br><br>
 
     <%- body %>
   </div>
+
+
   <!--SCRIPTS-->
   <script src="/dependencies/sails.io.js"></script>
   <!--SCRIPTS END-->
