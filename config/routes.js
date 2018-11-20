@@ -23,9 +23,11 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
- 'GET /user/login':{view:'user/login'},
- 'POST /user/login': 'UserController.login',
- '/logout': 'UserController.logout',
+ '/': 'MoneyController.index',
+
+ '/': {
+   view: 'pages/index'
+ },
 
   /***************************************************************************
   *                                                                          *
