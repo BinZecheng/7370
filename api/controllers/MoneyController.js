@@ -7,6 +7,16 @@
 
 module.exports = {
   
+    // action - create
+    create: async function (req, res) {
+
+        if (typeof req.body.Money === "undefined")
+            return res.badRequest("Form-data not received.");
+
+        await Money.create(req.body.Money);
+
+        return res.redirect('/');
+    },
 
 };
 
