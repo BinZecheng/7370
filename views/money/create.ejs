@@ -1,1 +1,10 @@
-<div id="busiType" value="<%= busiType %>"></div>
+<% if(typeof(busiType)) {%>
+    <form action="/user/create" method="POST">
+<% if(busiType=="t1001") {%>
+123
+<% }else if(busiType=="t1002") {%>
+        321
+<% };%>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+<% };%>
