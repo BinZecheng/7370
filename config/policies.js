@@ -18,10 +18,11 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-  EventMgtController: {
+  UserController: {
 
-    create: 'isAdmin',
-    admin: 'isAdmin',
-    mre: 'isUser'
+    login: 'isAdmin',
+    logout: 'isAdmin',
+    login: 'isUser',
+    logout:'isUser',
 }
 };

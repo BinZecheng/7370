@@ -2,12 +2,11 @@
 module.exports = async function (req, res, proceed) {
 
 
-    if (req.session.role == 'user') {
-        return proceed();   //proceed to the next policy,
-    }
+    // if (req.session.role == 'user') {
+        return proceed();  
+    // }
 
-    //--•
-    // Otherwise, this request did not come from a logged-in user.
-    return res.forbidden();
+  
+    // return res.forbidden();
 
 };
