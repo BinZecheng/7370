@@ -11,8 +11,24 @@
 
 module.exports.bootstrap = async function (done) {
 
+  if (await User.count() > 0) {
+    return done();
+  }
+
+  if (await Money.count() > 0) {
+    return done();
+  }
+
   sails.bcrypt = require('bcryptjs');
   const saltRounds = 10;
+
+  const hash = await sails.bcrypt.hash('123456', saltRounds);
+
+  await User.createEach([
+    { "username": "admin", "password": hash, role: "admin" },
+    { "username": "user", "password": hash, role: "user" },
+
+  ]);
 
   sails.getInvalidIdMsg = function (opts) {
 
@@ -27,31 +43,6 @@ module.exports.bootstrap = async function (done) {
     return null;        // falsy
 
   }
-
-  // By convention, this is a good place to set up fake data during development.
-  //
-  // For example:
-  // ```
-  // // Set up fake development data (or if we already have some, avast)
-  if (await User.count() > 0) {
-    return done();
-  }
-
-  // await Person.createEach([
-  //   { name: "Martin Choy", age: 23 },
-  //   { name: "Kenny Cheng", age: 22 }
-  //   // etc.
-  // ]);
-
-
-  const hash = await sails.bcrypt.hash('123456', saltRounds);
-
-  await User.createEach([
-    { "username": "admin", "password": hash, role:"admin"},
-    { "username": "user", "password": hash, role:"user"},
-
-  ]);
-
   
   return done();
 

@@ -1,3 +1,3 @@
 {"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
-{"username":"admin","password":"$2a$10$AJyd9KPfs1SZwVL4dNTNwOWGXPtx6wyo/0BsOld4ml/9NvEEpk66.","role":"admin","createdAt":1542738081711,"updatedAt":1542738081711,"id":3,"_id":3}
-{"username":"user","password":"$2a$10$AJyd9KPfs1SZwVL4dNTNwOWGXPtx6wyo/0BsOld4ml/9NvEEpk66.","role":"user","createdAt":1542738081711,"updatedAt":1542738081711,"id":4,"_id":4}
+{"username":"admin","password":"$2a$10$S302Sbbl7VKbRZYulRZTEObeVUP7PgtncR/PutYKHJithupLlR3h2","role":"admin","createdAt":1542739413836,"updatedAt":1542739413836,"id":5,"_id":5}
+{"username":"user","password":"$2a$10$S302Sbbl7VKbRZYulRZTEObeVUP7PgtncR/PutYKHJithupLlR3h2","role":"user","createdAt":1542739413836,"updatedAt":1542739413836,"id":6,"_id":6}
